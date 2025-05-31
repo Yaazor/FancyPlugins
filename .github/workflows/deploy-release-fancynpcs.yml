@@ -46,3 +46,6 @@ jobs:
 
       - name: Publish to reposilite (snapshots)
         run: ./gradlew :plugins:fancynpcs:fn-api:publishAllPublicationsToFancyinnovationsSnapshotsRepository
+
+      - name: Artifact
+        uses: actions/upload-artifact@v4
