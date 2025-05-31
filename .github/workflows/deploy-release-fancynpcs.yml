@@ -30,22 +30,5 @@ jobs:
       - name: Build FancyNpcs
         run: ./gradlew :plugins:fancynpcs:shadowJar
 
-      - name: Build deployment tool
-        run: ./gradlew :tools:deployment:shadowJar
-
-      - name: Deploy
-        env:
-          MODRINTH_API_KEY: ${{ secrets.MODRINTH_API_KEY }}
-          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run:
-          cd tools/deployment/build/libs &&
-          java -jar deployment.jar ../../../../plugins/fancynpcs/release_deployment_config.json
-
-      - name: Publish to reposilite (releases)
-        run: ./gradlew :plugins:fancynpcs:fn-api:publishAllPublicationsToFancyinnovationsReleasesRepository
-
-      - name: Publish to reposilite (snapshots)
-        run: ./gradlew :plugins:fancynpcs:fn-api:publishAllPublicationsToFancyinnovationsSnapshotsRepository
-
       - name: Artifact
         uses: actions/upload-artifact@v4
