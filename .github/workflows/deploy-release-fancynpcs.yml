@@ -32,4 +32,5 @@ jobs:
 
       - name: Artifact
         uses: actions/upload-artifact@v4
-        path: build
+        with:
+          path: build
