@@ -104,6 +104,10 @@ paper {
             required = false
             load = PaperPluginDescription.RelativeLoadOrder.BEFORE
         }
+        register("Citizens") {
+            required = false
+            load = PaperPluginDescription.RelativeLoadOrder.AFTER
+        }
     }
 }
 
